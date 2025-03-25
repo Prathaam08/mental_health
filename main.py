@@ -1,4 +1,5 @@
 
+
 import tweepy 
 import praw
 import pandas as pd
@@ -16,6 +17,16 @@ TWITTER_BEARER_TOKEN = os.getenv("TWITTER_BEARER_TOKEN")
 REDDIT_CLIENT_ID = os.getenv("REDDIT_CLIENT_ID")
 REDDIT_CLIENT_SECRET = os.getenv("REDDIT_CLIENT_SECRET")
 REDDIT_USER_AGENT = os.getenv("REDDIT_USER_AGENT")
+
+
+
+# # Twitter API credentials (use environment variables for security)
+# TWITTER_BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAMaayQEAAAAA2wCzLMGx%2BjNhGGpE7RV4vJhoMZ4%3DwDgSseJrVmHJSV4IwDMhWRiV5yaJTkekHJa5Fk8v6n65q9ixMj"
+
+# # Reddit API credentials
+# REDDIT_CLIENT_ID = "_npLrcJhEmvLr9rfZvGqxg"
+# REDDIT_CLIENT_SECRET = "LPlX5i1ZszkRnO_H_x-TT4DhdIrKFw"
+# REDDIT_USER_AGENT = "u/Ill_Confection_3139"
 
 # Clean text function
 def clean_text(text):
