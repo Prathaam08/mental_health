@@ -76,6 +76,5 @@ Negative    23
 ### **Sample Word Cloud:**
 📌 *A visualization of the most common words in analyzed discussions.*
 
-### **Sample Scatter Plot:**
-📊 *Shows the variation in sentiment scores based on text length.*
+
 
