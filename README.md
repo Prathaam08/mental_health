@@ -40,13 +40,6 @@ This project collects and analyzes sentiment from **Twitter and Reddit** discuss
    REDDIT_CLIENT_SECRET=your_reddit_client_secret
    REDDIT_USER_AGENT=your_reddit_user_agent
    ```
- 4. **Modify Python Code to Load Environment Variables**:
-   ```python
-   from dotenv import load_dotenv
-   import os
-   load_dotenv()
-   TWITTER_BEARER_TOKEN = os.getenv("TWITTER_BEARER_TOKEN")
-   ```
 
 ---
 ## How to Run the Script
