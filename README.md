@@ -27,23 +27,7 @@ This project collects and analyzes sentiment from **Twitter and Reddit** discuss
 
 ### 3. **Set Up API Keys Securely**
 
-#### Option 1: Using Environment Variables
-For **Windows (Command Prompt or PowerShell)**:
-```sh
-   setx TWITTER_BEARER_TOKEN "your_twitter_api_key"
-   setx REDDIT_CLIENT_ID "your_reddit_client_id"
-   setx REDDIT_CLIENT_SECRET "your_reddit_client_secret"
-   setx REDDIT_USER_AGENT "your_reddit_user_agent"
-```
-For **Mac/Linux (Bash or Zsh)**:
-```sh
-   export TWITTER_BEARER_TOKEN="your_twitter_api_key"
-   export REDDIT_CLIENT_ID="your_reddit_client_id"
-   export REDDIT_CLIENT_SECRET="your_reddit_client_secret"
-   export REDDIT_USER_AGENT="your_reddit_user_agent"
-```
-
-#### Option 2: Using a `.env` File (Recommended for Local Development)
+4. `.env` File (Recommended for Local Development)
 1. **Install dotenv**:
    ```sh
    pip install python-dotenv
