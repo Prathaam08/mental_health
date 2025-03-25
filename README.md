@@ -28,18 +28,18 @@ This project collects and analyzes sentiment from **Twitter and Reddit** discuss
 ### 3. **Set Up API Keys Securely**
 
 4. `.env` File (Recommended for Local Development)
-1. **Install dotenv**:
+ 1. **Install dotenv**:
    ```sh
    pip install python-dotenv
    ```
-2. **Create a `.env` file** in the project folder and add:
+ 2. **Create a `.env` file** in the project folder and add:
    ```sh
    TWITTER_BEARER_TOKEN=your_twitter_api_key
    REDDIT_CLIENT_ID=your_reddit_client_id
    REDDIT_CLIENT_SECRET=your_reddit_client_secret
    REDDIT_USER_AGENT=your_reddit_user_agent
    ```
-3. **Modify Python Code to Load Environment Variables**:
+ 3. **Modify Python Code to Load Environment Variables**:
    ```python
    from dotenv import load_dotenv
    import os
