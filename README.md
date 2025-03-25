@@ -1,104 +1,103 @@
-# mental_health
+# Sentiment Analysis from Twitter & Reddit
 
-4 Charts in One Page 1️⃣ Bar Chart - Number of positive, neutral, and negative posts
-2️⃣ Pie Chart - Percentage of each sentiment
-3️⃣ Scatter Plot - Sentiment spread against word count
-4️⃣ Box Chart - Text Length Distribution per Sentiment
+## Overview
+This project collects and analyzes sentiment from **Twitter and Reddit** discussions based on a user-provided keyword. It applies **sentiment analysis** using **TextBlob**, visualizes the data using various graphs, and generates a **word cloud** to display frequently used words.
 
-✅ Clearer Understanding
+---
+## Features
+- Collects **real-time Twitter** data using **Tweepy (Twitter API v2)**
+- Fetches **Reddit posts** using **PRAW (Python Reddit API Wrapper)**
+- **Cleans text** by removing URLs, special characters, and mentions
+- **Applies sentiment analysis** using **TextBlob** (Positive, Neutral, Negative)
+- **Generates visualizations**:
+  - **Bar Chart & Pie Chart** (Sentiment Distribution)
+  - **Scatter Plot** (Sentiment vs. Text Length)
+  - **Box Plot** (Text Length per Sentiment Category)
+  - **Word Cloud** (Most Common Words in Discussions)
+- Provides an **interactive menu** to visualize graphs multiple times
 
-Scatter Plot helps see how short vs long posts relate to sentiment
+---
+## Setup & Installation
+### 1. **Clone the Repository**
 
-Understanding the Scatter Plot: Sentiment vs. Text Length
-The scatter plot visualizes the relationship between text length (number of words) and sentiment (Positive, Neutral, Negative).
+### 2. **Install Required Dependencies**
+```sh
+   pip install tweepy praw textblob wordcloud seaborn matplotlib python-dotenv
+```
 
-Axes Explanation
-X-Axis (Text Length)
+### 3. **Set Up API Keys Securely**
 
-Represents the number of words in a text (short to long).
+#### Option 1: Using Environment Variables
+For **Windows (Command Prompt or PowerShell)**:
+```sh
+   setx TWITTER_BEARER_TOKEN "your_twitter_api_key"
+   setx REDDIT_CLIENT_ID "your_reddit_client_id"
+   setx REDDIT_CLIENT_SECRET "your_reddit_client_secret"
+   setx REDDIT_USER_AGENT "your_reddit_user_agent"
+```
+For **Mac/Linux (Bash or Zsh)**:
+```sh
+   export TWITTER_BEARER_TOKEN="your_twitter_api_key"
+   export REDDIT_CLIENT_ID="your_reddit_client_id"
+   export REDDIT_CLIENT_SECRET="your_reddit_client_secret"
+   export REDDIT_USER_AGENT="your_reddit_user_agent"
+```
 
-Each dot represents a single post/tweet.
+#### Option 2: Using a `.env` File (Recommended for Local Development)
+1. **Install dotenv**:
+   ```sh
+   pip install python-dotenv
+   ```
+2. **Create a `.env` file** in the project folder and add:
+   ```sh
+   TWITTER_BEARER_TOKEN=your_twitter_api_key
+   REDDIT_CLIENT_ID=your_reddit_client_id
+   REDDIT_CLIENT_SECRET=your_reddit_client_secret
+   REDDIT_USER_AGENT=your_reddit_user_agent
+   ```
+3. **Modify Python Code to Load Environment Variables**:
+   ```python
+   from dotenv import load_dotenv
+   import os
+   load_dotenv()
+   TWITTER_BEARER_TOKEN = os.getenv("TWITTER_BEARER_TOKEN")
+   ```
 
-Y-Axis (Sentiment Score)
+---
+## How to Run the Script
+```sh
+   python main.py
+```
+1. Enter a keyword to analyze sentiment from Twitter & Reddit.
+2. The script collects **real-time data**, cleans it, and performs **sentiment analysis**.
+3. Various charts and a word cloud will be displayed.
+4. After initial visualization, an interactive menu allows re-displaying any chart.
 
-Sentiments are represented as:
+---
+## Data Processing & Visualization
+### 1️⃣ **Bar & Pie Chart (Sentiment Distribution)**
+- **Bar Chart**: Shows the count of **Positive, Neutral, and Negative** discussions.
+- **Pie Chart**: Displays sentiment **distribution percentage**.
 
-1 (Positive)
+### 2️⃣ **Scatter & Box Plot (Text Length Analysis)**
+- **Scatter Plot**: Shows the **relationship between text length and sentiment**.
+- **Box Plot**: Displays **text length distribution** for each sentiment category.
 
-0 (Neutral)
+### 3️⃣ **Word Cloud**
+- Visualizes the **most frequently used words** in discussions.
+- Helps identify **trends** and common topics around the keyword.
 
--1 (Negative)
+---
+## Example Output
+### **Sentiment Summary:**
+```
+Positive    42
+Neutral     35
+Negative    23
+```
+### **Sample Word Cloud:**
+📌 *A visualization of the most common words in analyzed discussions.*
 
-The position of each dot on the y-axis tells you whether the post was classified as positive, neutral, or negative.
+### **Sample Scatter Plot:**
+📊 *Shows the variation in sentiment scores based on text length.*
 
-What the Scatter Plot Shows
-Cluster of Neutral Posts (around 0 sentiment)
-
-Likely shorter posts, as they stay near the lower x-values.
-
-This suggests neutral posts are mostly short messages.
-
-Positive and Negative Sentiments Spread Out
-
-Positive (1) and Negative (-1) sentiments are spread across different text lengths.
-
-Some longer texts express strong sentiments, meaning people tend to elaborate when they feel strongly (either positive or negative).
-
-Possible Outliers
-
-If a few dots are far apart from the main cluster, those might be unusual cases where someone wrote a very long post but kept a neutral tone (or vice versa).
-
-
-
-This box plot represents the distribution of text length across different sentiment categories (Positive, Neutral, and Negative). Here's how to interpret it:
-
-Key Components of the Box Plot
-Boxes (Interquartile Range - IQR)
-
-Each box represents the middle 50% of the text lengths for each sentiment.
-
-The lower boundary (bottom of the box) is the 25th percentile (Q1).
-
-The upper boundary (top of the box) is the 75th percentile (Q3).
-
-The line inside the box is the median (50th percentile, Q2).
-
-Whiskers
-
-These extend from the box to show the range of non-outlier values.
-
-They typically extend to 1.5 times the IQR beyond Q1 and Q3.
-
-Outliers (Dots outside whiskers)
-
-Any individual points beyond the whiskers are considered outliers, meaning those text lengths are significantly different from the rest.
-
-What the Plot Tells Us
-Positive Sentiment (leftmost box)
-
-The median text length is around the lower half of the box.
-
-The distribution is fairly spread out, with some outliers having very long text lengths.
-
-The range of text lengths is moderate to high.
-
-Neutral Sentiment (middle box)
-
-Appears very compressed (small IQR), meaning most neutral texts are very short.
-
-Almost no long texts; outliers are short texts.
-
-Negative Sentiment (rightmost box)
-
-The median text length is higher than the neutral category.
-
-The text length is more widely spread out, meaning people express negativity with short and long texts.
-
-Some extreme outliers suggest very long negative posts.
-
-Insights from the Box Plot
-Neutral texts tend to be very short.
-
-Negative and Positive texts have more variation, with negative ones sometimes being much longer.
-
-People tend to write long posts when expressing strong sentiments (both positive and negative).
